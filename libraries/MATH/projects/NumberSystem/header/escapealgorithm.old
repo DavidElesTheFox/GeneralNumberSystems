@@ -1,0 +1,239 @@
+#ifndef __MATH__NUMBERSYSTEM__ESCAPEALGORITHM_H
+#define __MATH__NUMBERSYSTEM__ESCAPEALGORITHM_H
+
+#include <StringUtil/statusbar.h>
+
+namespace MATH
+{
+	namespace NumberSystem
+	{
+		template<class T, class DoubleType, class STATUSBAR= StringUtil::StatusBar>
+		class EscapeAlgorithm;
+	}
+}
+#include <MATH/vector.h>
+
+#include <set>
+
+#include "lattice.h"
+
+#include "numbersystem.h"
+
+namespace MATH
+{
+	namespace NumberSystem
+	{
+		template<class T, class DoubleType, class STATUSBAR >
+		class EscapeAlgorithm
+		{
+			protected:
+				/** the number system */
+				const NumberSystem<T, DoubleType>* _ns;
+				/** convergence border of the algorhitms */
+				unsigned _convBorder;
+				/** converted digit set for computing */
+				Lattice<DoubleType> _convertedDigitSet;
+				/** converted base matrix */
+				MATH::Matrix<DoubleType> _convertedBase;
+				/**
+				 * the suggestion, this number the best border
+				 * which isn't harmfull for the picture
+				 */
+				unsigned _suggestion;
+				/**
+				 * the focus point of the algorith
+				 */
+				MATH::Vector<DoubleType> _focusPoint;
+			public:
+				EscapeAlgorithm(const NumberSystem<T, DoubleType>* ns, const unsigned convergencieBorder):
+				_ns(ns),
+				_convBorder(convergencieBorder),
+				_suggestion(0),
+				_focusPoint(ns->getBase().getColCount())
+				{
+					for(unsigned i = 0; i <_ns->_digitSet.size(); ++i)
+					{
+						_convertedDigitSet.push_back(EscapeAlgorithm::convertVector<T, DoubleType>(ns->_digitSet[i]));
+					}
+					_convertedBase = EscapeAlgorithm::convertMatrix<T, DoubleType>(_ns->_base);
+				}
+
+				void compute(const short xCoord,
+							 const short yCoord,
+							 int height,
+							 int width,
+							 T**& convergencieMatrix,
+							 DoubleType zoom = 1.0)
+				{
+					int i = 0;
+					int j = 0;
+					register unsigned k = 0;
+					register unsigned l = 0;
+					register unsigned size = 0;
+
+					register unsigned digitSize = _convertedDigitSet.size();
+					register unsigned lastSetSize = 0;
+
+					MATH::Vector<DoubleType> vector1, vector2;
+					computeRectangle(vector1, vector2);
+					vector1 = vector1 * zoom + _focusPoint;
+					vector2 = vector2 * zoom + _focusPoint; 
+					DoubleType K = vector1.norm(0) > vector2.norm(0) ? vector1.norm(0) : vector2.norm(0);//TODO::Create vector_traits, vectorCalculator
+					DoubleType stepDistanceX = 2*vector1[xCoord]/height;
+					DoubleType stepDistanceY = 2*vector2[yCoord]/width;
+
+
+					MATH::Vector<DoubleType> v1 = vector1;
+					MATH::Vector<DoubleType> v2 = vector2;
+					STATUSBAR status(height,"Escape Algorithm",100);
+					_suggestion = 0;
+					status.start();
+					MATH::Vector<DoubleType> z = -1 * v1 - v2;
+					for(; i < height; ++i)
+					{
+						status.show(i);
+						//v1[xCoord] = i * stepDistanceX;
+						z[xCoord] = i * stepDistanceX + v2[xCoord];
+						for(j = 0; j < width; ++j)
+						{
+
+							//std::cout<<i<<"/"<<j<<std::endl;
+							//v2[yCoord] = j * stepDistanceY;
+							//MATH::Vector<DoubleType> z = v1 + v2;
+							z[yCoord] = j * stepDistanceY + v1[yCoord];
+							std::vector<MATH::Vector<DoubleType> > S[2];
+							std::vector<MATH::Vector<DoubleType> > set;
+							set.push_back(z);
+							//S.push_back(set);
+							S[0] = set;
+							size = 1;
+							lastSetSize = S[(size - 1) % 2].size();
+
+							while(size < _convBorder && lastSetSize)
+							{
+	//							set.clear();
+								S[size % 2].clear();
+								for(k = 0; k < lastSetSize; ++k)
+								{
+									for(l = 0; l < digitSize; ++l)
+									{
+	//									std::cout<<i<<"/"<<j<<"/"<<k<<"/"<<l<<std::endl;
+										MATH::Vector<DoubleType> ztmp = _convertedBase * S[(size - 1) % 2][k] - _convertedDigitSet[l];
+										if(ztmp.norm(0) < K)
+										{
+										//	set.push_back(ztmp);
+											S[size % 2].push_back(ztmp);
+										}
+									}
+								}
+								lastSetSize = S[size++ % 2].size();
+							//	S[(size++ % 2)] = set;
+								//lastSetSize = set.size();
+							}
+							if(size < _convBorder && size > _suggestion)
+								_suggestion = size;
+							convergencieMatrix[i][j] = size;
+						}
+					}
+					status.end();
+
+				}
+
+				unsigned getSuggestion() const
+				{
+					return _suggestion;
+				}
+
+				MATH::Vector<DoubleType>& focusPoint()
+				{
+					return _focusPoint;
+				}
+			private:
+				void computeRectangle(MATH::Vector<DoubleType>& v1, MATH::Vector<DoubleType>& v3)
+				{
+					int dimension = _ns->_base.getRowCount();
+					MATH::Matrix<DoubleType> X = MATH::Matrix<DoubleType>::Identity(dimension, dimension);
+					v1 = v3 = MATH::Vector<DoubleType>(dimension,0);
+					MATH::Vector<DoubleType> v2 = v1;
+					MATH::Vector<DoubleType> v4 = v3;
+					MATH::Vector<DoubleType> tmp;
+
+					rectangleComputeCore(X, v1, v2, v3, v4, dimension);
+					v2 = v2*(1.0/(1.0 - X.norm(0)));
+					v4 = v4*(1.0/(1.0 - X.norm(0)));
+					for(int i = 0; i < dimension; ++i)
+					{
+						v3[i] = MATH::Core::ceil(v2[i]);//TODO::use number_traits
+						v1[i] = MATH::Core::floor(v4[i]);
+					}
+				}
+
+				inline void rectangleComputeCore(MATH::Matrix<DoubleType>& X,
+												 MATH::Vector<DoubleType>& v1,
+												 MATH::Vector<DoubleType>& v2,
+												 MATH::Vector<DoubleType>& v3,
+												 MATH::Vector<DoubleType>& v4,
+												 int dimension)
+				{
+					DoubleType y, x;
+					X = X * _ns->_chop._baseInverse;
+					std::vector<MATH::Vector<DoubleType> > set;
+					for(unsigned i = 0; i < _ns->_digitSet.size(); ++i)
+					{
+						set.push_back(X * EscapeAlgorithm::convertVector<T,DoubleType>(_ns->_digitSet[i]));
+					}
+					for (int i = 0; i < dimension; ++i)
+					{
+						x = static_cast<DoubleType>(0);	//max
+						y = static_cast<DoubleType>(0);	//min
+						for(unsigned j = 0; j < set.size(); ++j)
+						{
+							if(y > set[j][i])
+								y = set[j][i];
+							if(x < set[j][i])
+								x = set[j][i];
+						}
+						v1[i] = y;
+						v3[i] = x;
+					}
+					v2= v1 + v2;
+					v4 = v3 + v4;
+				}
+
+//				MATH::Vector<DoubleType> iterate(const MATH::Vector<DoubleType>& z, const unsigned i)
+//				{
+//					return _convertedBase*z - _convertedDigitSet[i];
+//				}
+
+			private:
+				template<class From, class To>
+				static inline MATH::Vector<To> convertVector(const MATH::Vector<From>& v)//TODO::Use VectorCalculator
+				{
+					MATH::Vector<To> ret(v.getDimension());
+					for(int i = 0; i < v.getDimension(); ++i)
+					{
+						ret[i] = static_cast<To>(v[i]);
+					}
+					return ret;
+				}
+
+
+				template<class From, class To>
+				static inline MATH::Matrix<To> convertMatrix(const MATH::Matrix<From>& v)//TODO::use matrixCalculator
+				{
+					MATH::Matrix<To> ret(v.getRowCount(), v.getColCount());
+					for(int i = 0; i < v.getRowCount(); ++i)
+					{
+						for(int j = 0; j < v.getColCount(); ++j)
+						{
+							ret(i, j) = static_cast<To>(v(i,j));
+						}
+					}
+					return ret;
+				}
+
+		};
+	}
+}
+
+#endif // __MATH__NUMBERSYSTEM__ESCAPEALGORITHM_H

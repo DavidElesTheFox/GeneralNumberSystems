@@ -1,0 +1,289 @@
+void ComplexTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testCreateElement();
+		if(isOk())
+			std::cout<<"\tOK................testCreateElement"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCreateElement"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCreateElementException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCreateElementUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testPrefixAdd();
+		if(isOk())
+			std::cout<<"\tOK................testPrefixAdd"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testPrefixAdd"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testPrefixAddException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testPrefixAddUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testPostfixAdd();
+		if(isOk())
+			std::cout<<"\tOK................testPostfixAdd"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testPostfixAdd"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testPostfixAddException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testPostfixAddUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testPrefixMinus();
+		if(isOk())
+			std::cout<<"\tOK................testPrefixMinus"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testPrefixMinus"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testPrefixMinusException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testPrefixMinusUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testPostfixMinus();
+		if(isOk())
+			std::cout<<"\tOK................testPostfixMinus"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testPostfixMinus"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testPostfixMinusException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testPostfixMinusUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testShortAdd();
+		if(isOk())
+			std::cout<<"\tOK................testShortAdd"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testShortAdd"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testShortAddException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testShortAddUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testShortMinus();
+		if(isOk())
+			std::cout<<"\tOK................testShortMinus"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testShortMinus"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testShortMinusException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testShortMinusUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testShortDiv();
+		if(isOk())
+			std::cout<<"\tOK................testShortDiv"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testShortDiv"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testShortDivException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testShortDivUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testShortMult();
+		if(isOk())
+			std::cout<<"\tOK................testShortMult"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testShortMult"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testShortMultException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testShortMultUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testToString();
+		if(isOk())
+			std::cout<<"\tOK................testToString"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testToString"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testToStringException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testToStringUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testEq();
+		if(isOk())
+			std::cout<<"\tOK................testEq"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testEq"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testEqException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testEqUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testNotEq();
+		if(isOk())
+			std::cout<<"\tOK................testNotEq"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testNotEq"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testNotEqException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testNotEqUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testAdd();
+		if(isOk())
+			std::cout<<"\tOK................testAdd"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testAdd"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testAddException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testAddUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testMinus();
+		if(isOk())
+			std::cout<<"\tOK................testMinus"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testMinus"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testMinusException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testMinusUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testMult();
+		if(isOk())
+			std::cout<<"\tOK................testMult"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testMult"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testMultException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testMultUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testDiv();
+		if(isOk())
+			std::cout<<"\tOK................testDiv"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testDiv"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testDivException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testDivUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testMod();
+		if(isOk())
+			std::cout<<"\tOK................testMod"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testMod"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testModException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testModUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testPreasureAdd();
+		if(isOk())
+			std::cout<<"\tOK................testPreasureAdd"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testPreasureAdd"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testPreasureAddException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testPreasureAddUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testPreasureMult();
+		if(isOk())
+			std::cout<<"\tOK................testPreasureMult"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testPreasureMult"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testPreasureMult: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testPreasureMult: Unknown exception"<<std::endl;  }
+
+}

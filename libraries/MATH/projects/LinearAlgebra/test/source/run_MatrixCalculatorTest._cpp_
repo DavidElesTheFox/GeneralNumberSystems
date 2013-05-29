@@ -1,0 +1,214 @@
+void MatrixCalculatorTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testNorm_1();
+		if(isOk())
+			std::cout<<"\tOK................testNorm_1"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testNorm_1"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testNorm_1Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testNorm_1Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testNorm_Inf();
+		if(isOk())
+			std::cout<<"\tOK................testNorm_Inf"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testNorm_Inf"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testNorm_InfException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testNorm_InfUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testInverseExists();
+		if(isOk())
+			std::cout<<"\tOK................testInverseExists"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testInverseExists"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testInverseExistsException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testInverseExistsUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testInverseNotExists();
+		if(isOk())
+			std::cout<<"\tOK................testInverseNotExists"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testInverseNotExists"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testInverseNotExistsException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testInverseNotExistsUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testIsDiagonal();
+		if(isOk())
+			std::cout<<"\tOK................testIsDiagonal"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testIsDiagonal"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testIsDiagonalException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testIsDiagonalUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testTransponate();
+		if(isOk())
+			std::cout<<"\tOK................testTransponate"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testTransponate"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testTransponateException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testTransponateUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testDeterminantNotNull();
+		if(isOk())
+			std::cout<<"\tOK................testDeterminantNotNull"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testDeterminantNotNull"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testDeterminantNotNullException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testDeterminantNotNullUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testDeterminantNull();
+		if(isOk())
+			std::cout<<"\tOK................testDeterminantNull"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testDeterminantNull"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testDeterminantNullException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testDeterminantNullUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testRank();
+		if(isOk())
+			std::cout<<"\tOK................testRank"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testRank"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testRankException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testRankUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testFullRank();
+		if(isOk())
+			std::cout<<"\tOK................testFullRank"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testFullRank"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testFullRankException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testFullRankUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testRest();
+		if(isOk())
+			std::cout<<"\tOK................testRest"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testRest"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testRestException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testRestUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testCharacteristicPolynomial();
+		if(isOk())
+			std::cout<<"\tOK................testCharacteristicPolynomial"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCharacteristicPolynomial"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCharacteristicPolynomialException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCharacteristicPolynomialUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testIsExpansive();
+		if(isOk())
+			std::cout<<"\tOK................testIsExpansive"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testIsExpansive"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testIsExpansiveException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testIsExpansiveUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testIsExpansive2();
+		if(isOk())
+			std::cout<<"\tOK................testIsExpansive2"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testIsExpansive2"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testIsExpansive2: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testIsExpansive2: Unknown exception"<<std::endl;  }
+
+}

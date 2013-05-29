@@ -1,0 +1,17 @@
+#include "../header/adjointmatrix_traits.h"
+
+
+namespace MATH
+{
+	namespace LinearAlgebra
+	{
+	/*	template<>
+		int AdjointMatrix_traits<int>::getDeterminant(MATH::Matrix<int>& mtx)
+		{
+			SmithNormalForm<int> snf = mtx;
+			return snf.getDeterminant();
+		}
+
+		template class AdjointMatrix_traits<int>;*/
+	}
+}

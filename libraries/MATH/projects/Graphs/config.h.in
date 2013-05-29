@@ -1,0 +1,19 @@
+#define Graphs_VERSION_MAJOR @Graphs_VERSION_MAJOR@
+#define Graphs_VERSION_MINOR @Graphs_VERSION_MINOR@
+
+
+/**
+	* @file graphsconfig.h
+	* @brief configuration file for cmake
+	*/
+
+/**
+	* @mainpage Graphs
+	* 
+	*           This namespace contains general classes for Graphs, 
+	*           interfaces, abstract algorithms, BFS, DFS, ...
+	*           
+	* 
+	* @version @Graphs_VERSION_MAJOR@.@Graphs_VERSION_MINOR@
+	* @author David Eles, eles.david88@gmail.com
+	*/

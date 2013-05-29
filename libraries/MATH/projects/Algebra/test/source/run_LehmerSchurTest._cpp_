@@ -1,0 +1,34 @@
+void LehmerSchurTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testExpansive();
+		if(isOk())
+			std::cout<<"\tOK................testExpansive"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testExpansive"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testExpansiveException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testExpansiveUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testNonExpansive();
+		if(isOk())
+			std::cout<<"\tOK................testNonExpansive"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testNonExpansive"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testNonExpansive: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testNonExpansive: Unknown exception"<<std::endl;  }
+
+}

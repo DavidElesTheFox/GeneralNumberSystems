@@ -1,0 +1,64 @@
+void KaratsubaTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testMult();
+		if(isOk())
+			std::cout<<"\tOK................testMult"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testMult"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testMultException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testMultUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testMult2();
+		if(isOk())
+			std::cout<<"\tOK................testMult2"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testMult2"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testMult2Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testMult2Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testMult3();
+		if(isOk())
+			std::cout<<"\tOK................testMult3"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testMult3"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testMult3Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testMult3Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testMult4();
+		if(isOk())
+			std::cout<<"\tOK................testMult4"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testMult4"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testMult4: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testMult4: Unknown exception"<<std::endl;  }
+
+}

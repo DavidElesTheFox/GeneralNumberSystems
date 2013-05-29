@@ -1,0 +1,64 @@
+void NumberSystemTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testChop();
+		if(isOk())
+			std::cout<<"\tOK................testChop"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testChop"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testChopException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testChopUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testChop2();
+		if(isOk())
+			std::cout<<"\tOK................testChop2"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testChop2"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testChop2Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testChop2Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testChop3();
+		if(isOk())
+			std::cout<<"\tOK................testChop3"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testChop3"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testChop3Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testChop3Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testChopPressure();
+		if(isOk())
+			std::cout<<"\tOK................testChopPressure"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testChopPressure"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testChopPressure: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testChopPressure: Unknown exception"<<std::endl;  }
+
+}

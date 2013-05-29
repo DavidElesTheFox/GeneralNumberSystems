@@ -1,0 +1,19 @@
+void GcdTest::run()
+{
+	bool tmp = true;
+	testGcd();
+	if(isOk())
+		std::cout<<"\tOK................testGcd"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testGcd"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testGcd2();
+	if(isOk())
+		std::cout<<"\tOK................testGcd2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testGcd2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+}

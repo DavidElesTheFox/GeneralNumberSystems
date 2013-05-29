@@ -1,0 +1,229 @@
+void MatrixTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testConstructor();
+		if(isOk())
+			std::cout<<"\tOK................testConstructor"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testConstructor"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testConstructorException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testConstructorUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testCopyConstructor();
+		if(isOk())
+			std::cout<<"\tOK................testCopyConstructor"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCopyConstructor"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCopyConstructorException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCopyConstructorUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testConstructor2();
+		if(isOk())
+			std::cout<<"\tOK................testConstructor2"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testConstructor2"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testConstructor2Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testConstructor2Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorBeEq();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorBeEq"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorBeEq"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorBeEqException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorBeEqUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorResize();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorResize"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorResize"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorResizeException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorResizeUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorEq();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorEq"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorEq"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorEqException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorEqUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorNotEq();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorNotEq"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorNotEq"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorNotEqException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorNotEqUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorAdd();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorAdd"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorAdd"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorAddException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorAddUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorMinus();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorMinus"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorMinus"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorMinusException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorMinusUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorMultScalar();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorMultScalar"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorMultScalar"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorMultScalarException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorMultScalarUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorMult();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorMult"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorMult"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorMultException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorMultUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorMultVM();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorMultVM"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorMultVM"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorMultVMException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorMultVMUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorMultMV();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorMultMV"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorMultMV"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorMultMVException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorMultMVUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testFill();
+		if(isOk())
+			std::cout<<"\tOK................testFill"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testFill"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testFillException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testFillUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testPressure();
+		if(isOk())
+			std::cout<<"\tOK................testPressure"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testPressure"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testPressure: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testPressure: Unknown exception"<<std::endl;  }
+
+}

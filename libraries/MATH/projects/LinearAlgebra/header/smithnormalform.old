@@ -1,0 +1,396 @@
+#ifndef __MATH__LINEARALGEBRA__SMITHNORMALFORM_H
+#define __MATH__LINEARALGEBRA__SMITHNORMALFORM_H
+
+
+#include <MATH/matrix.h>
+#include <MATH/Algebra/gcd.h>
+
+namespace MATH
+{
+
+	namespace LinearAlgebra
+	{
+		template<class T>
+		class SmithNormalForm
+		{
+			public:
+				enum mode_t {LEFT_POSITIVE, RIGHT_POSITIVE};
+		/*		MEMBERS		*/
+			protected:
+				MATH::Matrix<T> _m;
+
+
+				/** s = u.m.v*/
+				MATH::Matrix<T> _u;
+				MATH::Matrix<T> _v;
+				MATH::Matrix<T> _s;
+
+				mode_t _mode;
+				bool _positiveShape;
+		/*		FUNCTIONS	*/
+			public:
+
+				SmithNormalForm(const MATH::Matrix<T>& matrix, const bool isPositiveShape = false, const mode_t mode = LEFT_POSITIVE):
+				 _m(matrix),
+				 _u(matrix.getRowCount(), matrix.getColCount()),
+				 _v(matrix.getRowCount(), matrix.getColCount()),
+				 _s(matrix.getRowCount(), matrix.getColCount()),
+				 _mode(mode),
+				 _positiveShape(isPositiveShape)
+				{
+					compute();
+				}
+
+				// Not needed
+				//SmithNormalForm(const SmithNormalForm& other);
+
+				virtual ~SmithNormalForm()
+				{	}
+
+				//Not Needed
+				//SmithNormalForm& operator=(const SmithNormalForm& other);
+
+				MATH::Matrix<T> getLeftMatrix() const
+				{
+					return _u;
+				}
+
+				MATH::Matrix<T> getRightMatrix() const
+				{
+					return _v;
+				}
+
+				MATH::Matrix<T> getNormalForm() const
+				{
+					return _s;
+				}
+
+				MATH::Matrix<T> operator()() const
+				{
+					return _s;
+				}
+
+				T getDeterminant() const
+				{
+					T ret = _s(0,0);
+					for(int i = 1; i < _s.getRowCount(); ++i)
+					{
+						ret *= _s(i,i);
+					}
+					return ret;
+				}
+
+			protected:
+				void compute()
+				{
+					_s = _m;
+					getIdentityMatrix(&_u);
+					getIdentityMatrix(&_v);
+					MATH::Matrix<T> tmp(_s.getRowCount(), _s.getColCount());
+					//MATH::Matrix<double> tmp2(_s.getRowCount(), _s.getColCount());
+					getIdentityMatrix(&tmp);
+					for(int i = 0; i < _s.getRowCount() - 1; ++i)
+					{
+//						std::cout<<"iterate\n"<<_s<<std::endl;
+						if(!swapRow(&_s, i,tmp) || !swapCol(&_s, i, tmp))
+						{
+							break;
+						}
+//						std::cout<<"rowTransformation\n"<<_s<<std::endl;
+						rowTransformation(i, tmp);
+
+//						std::cout<<"colTransformation\n"<<_s<<std::endl;
+						colTransportation(i, tmp);
+
+//						std::cout<<"rowElim\n"<<_s<<std::endl;
+						rowElimination(i, tmp);
+
+//						std::cout<<"colElim\n"<<_s<<std::endl;
+						colElimination(i, tmp);
+					}
+
+					correction(tmp);
+				}
+
+
+			private:
+				void getLeftEliminatorMatrix(MATH::Matrix<T>* mtx, const int id)
+				{
+					for(int i = 0; i < mtx->getRowCount(); ++i)
+					{
+						for(int j = 0; j < mtx->getRowCount(); ++j)
+						{
+							if(i == j)
+							{
+								(*mtx)(i,j) = 1;
+							}
+							else if( j == id)
+							{
+								(*mtx)(i,j) = -_s(i,j)/_s(j,j);
+							}
+							else
+							{
+								(*mtx)(i,j) = 0;
+							}
+						}
+					}
+				}
+
+				void getRightEliminatorMatrix(MATH::Matrix<T>* mtx, const int id)
+				{
+					for(int i = 0; i < mtx->getRowCount(); ++i)
+					{
+						for(int j = 0; j < mtx->getRowCount(); ++j)
+						{
+							if(i == j)
+							{
+								(*mtx)(i,j) = 1;
+							}
+							else if( i == id)
+							{
+								(*mtx)(i,j) = -_s(i,j)/_s(i,i);
+							}
+							else
+							{
+								(*mtx)(i,j) = 0;
+							}
+						}
+					}
+				}
+
+				void getLeftTransformationMatrix(MATH::Matrix<T>* mtx, const int rowId1, const int rowId2)
+				{
+					typename MATH::Algebra::Gcd<T>::EuclideanResult_t res = MATH::Algebra::Gcd<T>::EuclideanAlg( _s(rowId1,rowId1), _s(rowId2 , rowId1) );
+
+					getIdentityMatrix(mtx);
+
+					(*mtx)(rowId1,rowId1) = res.a;
+					(*mtx)(rowId2, rowId1) = - _s(rowId2, rowId1)/res.gcd;
+					(*mtx)(rowId1, rowId2) = res.b;
+					(*mtx)(rowId2, rowId2) = _s(rowId1, rowId1)/res.gcd;
+				}
+
+				void getRightTransformationMatrix(MATH::Matrix<T>* mtx, const int rowId1, const int rowId2)
+				{
+					typename MATH::Algebra::Gcd<T>::EuclideanResult_t res = MATH::Algebra::Gcd<T>::EuclideanAlg( _s(rowId1,rowId1), _s(rowId1, rowId2 ));
+
+					getIdentityMatrix(mtx);
+
+					(*mtx)(rowId1,rowId1) = res.a;
+					(*mtx)(rowId1, rowId2) = -_s(rowId1, rowId2)/res.gcd;
+					(*mtx)(rowId2, rowId1) = res.b;
+					(*mtx)(rowId2, rowId2) = _s(rowId1, rowId1)/res.gcd;
+				}
+
+				void getIdentityMatrix(MATH::Matrix<T>* mtx)
+				{
+					for(int i = 0; i < mtx->getRowCount(); ++i)
+					{
+						for(int j = 0; j < mtx->getColCount(); ++j)
+						{
+							if( i != j)
+								(*mtx)(i,j) = 0;
+							else
+								(*mtx)(i,j) = 1;
+						}
+					}
+				}
+
+				void getSwapMatrix(MATH::Matrix<T>* mtx, const int i, const int j)
+				{
+					getIdentityMatrix(mtx);
+					(*mtx)(i, i) = 0;
+					(*mtx)(j, j) = 0;
+					(*mtx)(i, j) = -1;
+					(*mtx)(j, i) = 1;
+				}
+
+
+				int getMinimumRowNum(MATH::Matrix<T>* mtx, const int colNum, const int start)
+				{
+					int ret = start;
+					T min = (*mtx)(start, colNum);
+					while(min == 0 && ret < mtx->getRowCount())
+					{
+						min = (*mtx)(++ret,colNum);
+					}
+					for(int i = start; i < mtx->getRowCount(); ++i)
+					{
+						if(
+							(*mtx)(i,colNum) != 0
+							&&(
+								((*mtx)(i, colNum) >= 0 &&  min > (*mtx)(i, colNum))
+								|| ((*mtx)(i, colNum) < 0 &&  min > -(*mtx)(i, colNum)) )
+							)
+						{
+							ret = i;
+							min = (*mtx)(i, colNum) >= 0 ? (*mtx)(i, colNum) : -(*mtx)(i, colNum);
+						}
+					}
+					return ret;
+				}
+
+				int getMinimumColNum(MATH::Matrix<T>* mtx, const int rowNum, const int start)
+				{
+					int ret = start;
+					T min = (*mtx)(rowNum, start);
+					while(min == 0 && ret < mtx->getColCount())
+					{
+						min = (*mtx)(rowNum, ++ret);
+					}
+					for(int i = start; i < mtx->getColCount(); ++i)
+					{
+						if(
+							(*mtx)(rowNum, i) != 0
+							&&(
+								((*mtx)(rowNum, i) >= 0 &&  min > (*mtx)(rowNum, i))
+								|| ((*mtx)(rowNum, i) < 0 &&  min > -(*mtx)(rowNum, i)) )
+							)
+						{
+							ret = i;
+							min = (*mtx)(rowNum, i) >= 0 ? (*mtx)(rowNum, i) : -(*mtx)(rowNum, i);
+						}
+					}
+					return ret;
+				}
+
+				inline bool swapRow(MATH::Matrix<T>* mtx, const int i, MATH::Matrix<T>& tmp)
+				{
+//					std::cout<<"Swap Row"<<std::endl;
+					int minRow = getMinimumRowNum(&_s,i,i);
+					if(minRow == mtx->getRowCount())
+						return false;
+
+					if(minRow != i)
+					{
+						getSwapMatrix(&tmp,i, minRow);
+						_s = tmp * _s;
+						_u = tmp * _u;
+//						std::cout<<"s"<<std::endl<<_s;
+					}
+					return true;
+				}
+
+				inline bool swapCol(MATH::Matrix<T>* mtx, const int i, MATH::Matrix<T>& tmp)
+				{
+//					std::cout<<"Swap Col"<<std::endl;
+					int minCol = getMinimumColNum(&_s,i,i);
+					if( minCol == mtx->getColCount())
+						return false;
+
+					if(minCol != i)
+					{
+						getSwapMatrix(&tmp,i, minCol);
+						_s = _s * tmp;
+						_v = _v * tmp;
+//						std::cout<<"s"<<std::endl<<_s;
+					}
+					return true;
+				}
+
+				inline void rowTransformation(const int i, MATH::Matrix<T>& tmp)
+				{
+					for(int j = 1; j + i < _s.getRowCount(); ++j)
+					{
+						if(_s(i + j,i) != 0
+							&& (_s(i + j,i) / _s(i, i)) * _s(i, i) != _s(i + j,i) )
+						{
+							getLeftTransformationMatrix(&tmp,i,i + j);
+							_s = tmp * _s;
+							_u = tmp * _u;
+						}
+					}
+				}
+
+				inline void rowElimination(const int i, MATH::Matrix<T>& tmp)
+				{
+				/*	getLeftEliminatorMatrix(&tmp,i);
+					_s = tmp * _s;
+					_u = tmp * _u;
+
+					swapRow(&_s, i, tmp);
+
+					getLeftEliminatorMatrix(&tmp,i);
+					_s = tmp * _s;
+					_u = tmp * _u;*/
+
+					//It is a good row
+
+
+					//Row elimination
+					getLeftEliminatorMatrix(&tmp,i);
+					_s = tmp * _s;
+					_u = tmp * _u;
+				}
+
+				inline void colTransportation(const int i, MATH::Matrix<T>& tmp)
+				{
+					for(int j = 1; j + i < _s.getRowCount(); ++j)
+					{
+						if( _s(i,i + j) != 0
+							&& (_s(i,i + j) / _s(i, i)) * _s(i, i) != _s(i,i + j))
+						{
+
+////							std::cout<<"áááá\n"<<_s<<std::endl;
+							getRightTransformationMatrix(&tmp,i,i + j);
+//							std::cout<<tmp<<std::endl;
+							_s = _s * tmp;
+							_v = _v * tmp;
+						}
+					}
+				}
+
+				inline void colElimination(const int i, MATH::Matrix<T>& tmp)
+				{
+		/*			getRightEliminatorMatrix(&tmp,i);
+					_s = _s * tmp;
+					_v = _v * tmp;
+					swapCol(&_s, i, tmp);
+
+					getRightEliminatorMatrix(&tmp,i);
+					_s = _s * tmp;
+					_v = _v * tmp;*/
+
+
+//					std::cout<<"nnnn\n"<<_s<<std::endl;
+
+
+					//col elimination
+					getRightEliminatorMatrix(&tmp,i);
+					_s = _s * tmp;
+					_v = _v * tmp;
+				}
+
+				inline void correction(MATH::Matrix<T>& tmp)
+				{
+					if(!_positiveShape)
+						return;
+					bool  leftPositive = _mode == LEFT_POSITIVE;
+					getIdentityMatrix(&tmp);
+					for(int i = 0; i < _s.getRowCount(); ++i)
+					{
+						if(_s(i, i) < 0)
+						{
+							if(leftPositive)
+							{
+								tmp(i, i) = -1;
+								_s = _s * tmp;
+								_v = _v * tmp;
+								tmp(i, i) = 1;
+							}
+							else
+							{
+								tmp(i, i) = 11;
+								_s = tmp * _s;
+								_u = tmp * _u;
+								tmp(i, i) = 1;
+							}
+						}
+					}
+				}
+		};
+	}
+}
+
+
+#endif // __MATH__LINEARALGEBRA__SMITHNORMALFORM_H

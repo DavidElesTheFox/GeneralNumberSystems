@@ -1,0 +1,139 @@
+void Matrix_traitsTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testCreateMatrix();
+		if(isOk())
+			std::cout<<"\tOK................testCreateMatrix"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCreateMatrix"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCreateMatrixException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCreateMatrixUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testGetElement();
+		if(isOk())
+			std::cout<<"\tOK................testGetElement"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testGetElement"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testGetElementException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testGetElementUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testRefGetElement();
+		if(isOk())
+			std::cout<<"\tOK................testRefGetElement"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testRefGetElement"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testRefGetElementException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testRefGetElementUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testResize();
+		if(isOk())
+			std::cout<<"\tOK................testResize"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testResize"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testResizeException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testResizeUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testCopy();
+		if(isOk())
+			std::cout<<"\tOK................testCopy"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCopy"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCopyException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCopyUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testGetDimension();
+		if(isOk())
+			std::cout<<"\tOK................testGetDimension"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testGetDimension"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testGetDimensionException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testGetDimensionUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testRowNum();
+		if(isOk())
+			std::cout<<"\tOK................testRowNum"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testRowNum"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testRowNumException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testRowNumUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testColNum();
+		if(isOk())
+			std::cout<<"\tOK................testColNum"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testColNum"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testColNumException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testColNumUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testEquals();
+		if(isOk())
+			std::cout<<"\tOK................testEquals"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testEquals"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testEquals: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testEquals: Unknown exception"<<std::endl;  }
+
+}

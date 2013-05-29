@@ -1,0 +1,214 @@
+void VectorTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testConstructor();
+		if(isOk())
+			std::cout<<"\tOK................testConstructor"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testConstructor"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testConstructorException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testConstructorUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testCopyConstructor();
+		if(isOk())
+			std::cout<<"\tOK................testCopyConstructor"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCopyConstructor"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCopyConstructorException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCopyConstructorUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testConstructor2();
+		if(isOk())
+			std::cout<<"\tOK................testConstructor2"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testConstructor2"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testConstructor2Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testConstructor2Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testCount();
+		if(isOk())
+			std::cout<<"\tOK................testCount"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCount"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCountException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCountUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperator_BR_C();
+		if(isOk())
+			std::cout<<"\tOK................testOperator_BR_C"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperator_BR_C"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperator_BR_CException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperator_BR_CUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperator_BR();
+		if(isOk())
+			std::cout<<"\tOK................testOperator_BR"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperator_BR"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperator_BRException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperator_BRUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorBeEQ();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorBeEQ"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorBeEQ"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorBeEQException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorBeEQUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorEQ();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorEQ"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorEQ"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorEQException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorEQUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorPlus();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorPlus"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorPlus"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorPlusException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorPlusUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorMinus();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorMinus"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorMinus"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorMinusException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorMinusUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorMultV_D();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorMultV_D"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorMultV_D"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorMultV_DException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorMultV_DUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorMultD_V();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorMultD_V"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorMultD_V"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorMultD_VException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorMultD_VUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testOperatorMultV_V();
+		if(isOk())
+			std::cout<<"\tOK................testOperatorMultV_V"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testOperatorMultV_V"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testOperatorMultV_VException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testOperatorMultV_VUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testXmultiply();
+		if(isOk())
+			std::cout<<"\tOK................testXmultiply"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testXmultiply"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testXmultiply: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testXmultiply: Unknown exception"<<std::endl;  }
+
+}

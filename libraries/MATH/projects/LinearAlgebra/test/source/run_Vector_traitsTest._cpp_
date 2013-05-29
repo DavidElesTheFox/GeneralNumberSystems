@@ -1,0 +1,94 @@
+void Vector_traitsTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testCreate();
+		if(isOk())
+			std::cout<<"\tOK................testCreate"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCreate"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCreateException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCreateUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testGetElement();
+		if(isOk())
+			std::cout<<"\tOK................testGetElement"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testGetElement"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testGetElementException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testGetElementUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testRefGetElement();
+		if(isOk())
+			std::cout<<"\tOK................testRefGetElement"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testRefGetElement"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testRefGetElementException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testRefGetElementUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testCopy();
+		if(isOk())
+			std::cout<<"\tOK................testCopy"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCopy"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCopyException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCopyUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testGetDimension();
+		if(isOk())
+			std::cout<<"\tOK................testGetDimension"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testGetDimension"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testGetDimensionException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testGetDimensionUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testEquals();
+		if(isOk())
+			std::cout<<"\tOK................testEquals"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testEquals"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testEquals: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testEquals: Unknown exception"<<std::endl;  }
+
+}

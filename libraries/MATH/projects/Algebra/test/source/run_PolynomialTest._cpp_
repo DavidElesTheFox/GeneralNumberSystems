@@ -1,0 +1,109 @@
+void PolynomialTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testCreateElement();
+		if(isOk())
+			std::cout<<"\tOK................testCreateElement"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCreateElement"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCreateElementException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCreateElementUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testCreateElement2();
+		if(isOk())
+			std::cout<<"\tOK................testCreateElement2"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCreateElement2"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCreateElement2Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCreateElement2Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testCreateFormattedElement();
+		if(isOk())
+			std::cout<<"\tOK................testCreateFormattedElement"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCreateFormattedElement"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCreateFormattedElementException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCreateFormattedElementUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testAdd();
+		if(isOk())
+			std::cout<<"\tOK................testAdd"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testAdd"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testAddException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testAddUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testSubstract();
+		if(isOk())
+			std::cout<<"\tOK................testSubstract"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testSubstract"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testSubstractException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testSubstractUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testMult();
+		if(isOk())
+			std::cout<<"\tOK................testMult"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testMult"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testMultException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testMultUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testInterp();
+		if(isOk())
+			std::cout<<"\tOK................testInterp"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testInterp"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testInterp: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testInterp: Unknown exception"<<std::endl;  }
+
+}

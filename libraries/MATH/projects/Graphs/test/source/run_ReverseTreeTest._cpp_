@@ -1,0 +1,59 @@
+void ReverseTreeTest::run()
+{
+	bool tmp = true;
+	testCreate();
+	if(isOk())
+		std::cout<<"\tOK................testCreate"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testCreate"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testSearch();
+	if(isOk())
+		std::cout<<"\tOK................testSearch"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testSearch"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testInsert();
+	if(isOk())
+		std::cout<<"\tOK................testInsert"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testInsert"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testInsertGraph();
+	if(isOk())
+		std::cout<<"\tOK................testInsertGraph"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testInsertGraph"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testInsertNode();
+	if(isOk())
+		std::cout<<"\tOK................testInsertNode"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testInsertNode"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testJoinToLeaf();
+	if(isOk())
+		std::cout<<"\tOK................testJoinToLeaf"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testJoinToLeaf"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testSimplify();
+	if(isOk())
+		std::cout<<"\tOK................testSimplify"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testSimplify"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+}

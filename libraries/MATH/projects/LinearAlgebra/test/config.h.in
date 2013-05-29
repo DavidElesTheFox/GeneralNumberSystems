@@ -1,0 +1,2 @@
+#define LinearAlgebraTest_VERSION_MAJOR @LinearAlgebraTest_VERSION_MAJOR@
+#define LinearAlgebraTest_VERSION_MINOR @LinearAlgebraTest_VERSION_MINOR@

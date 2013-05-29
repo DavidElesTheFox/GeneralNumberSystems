@@ -1,0 +1,2 @@
+#define GraphTest_VERSION_MAJOR @GraphTest_VERSION_MAJOR@
+#define GraphTest_VERSION_MINOR @GraphTest_VERSION_MINOR@

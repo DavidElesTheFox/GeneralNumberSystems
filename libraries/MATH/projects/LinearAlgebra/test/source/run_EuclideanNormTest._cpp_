@@ -1,0 +1,64 @@
+void EuclideanNormTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testMatrixNormFloat();
+		if(isOk())
+			std::cout<<"\tOK................testMatrixNormFloat"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testMatrixNormFloat"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testMatrixNormFloatException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testMatrixNormFloatUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testMatrixNormInt();
+		if(isOk())
+			std::cout<<"\tOK................testMatrixNormInt"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testMatrixNormInt"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testMatrixNormIntException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testMatrixNormIntUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testVectorNormFloat();
+		if(isOk())
+			std::cout<<"\tOK................testVectorNormFloat"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testVectorNormFloat"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testVectorNormFloatException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testVectorNormFloatUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testVectorNormInt();
+		if(isOk())
+			std::cout<<"\tOK................testVectorNormInt"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testVectorNormInt"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testVectorNormInt: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testVectorNormInt: Unknown exception"<<std::endl;  }
+
+}

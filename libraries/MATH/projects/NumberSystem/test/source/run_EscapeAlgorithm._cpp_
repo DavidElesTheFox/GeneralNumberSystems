@@ -1,0 +1,19 @@
+void EscapeAlgorithmTest::run()
+{
+	bool tmp = true;
+	testCompute();
+	if(isOk())
+		std::cout<<"\tOK................testCompute"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testCompute"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testCompute2();
+	if(isOk())
+		std::cout<<"\tOK................testCompute2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testCompute2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+}

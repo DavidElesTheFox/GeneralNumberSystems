@@ -1,0 +1,2 @@
+#define StringUtil_VERSION_MAJOR @StringUtil_VERSION_MAJOR@
+#define StringUtil_VERSION_MINOR @StringUtil_VERSION_MINOR@

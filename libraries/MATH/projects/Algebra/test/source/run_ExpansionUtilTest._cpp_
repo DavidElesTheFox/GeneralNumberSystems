@@ -1,0 +1,34 @@
+void ExpansionUtilTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testCreateAlgebricalField();
+		if(isOk())
+			std::cout<<"\tOK................testCreateAlgebricalField"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCreateAlgebricalField"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCreateAlgebricalFieldException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCreateAlgebricalFieldUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testCreateNonAlgebricalField();
+		if(isOk())
+			std::cout<<"\tOK................testCreateNonAlgebricalField"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCreateNonAlgebricalField"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCreateNonAlgebricalField: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCreateNonAlgebricalField: Unknown exception"<<std::endl;  }
+
+}

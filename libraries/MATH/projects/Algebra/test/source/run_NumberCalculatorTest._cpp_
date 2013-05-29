@@ -1,0 +1,169 @@
+void NumberCalculatorTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testAbs();
+		if(isOk())
+			std::cout<<"\tOK................testAbs"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testAbs"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testAbsException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testAbsUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testAbsFloat();
+		if(isOk())
+			std::cout<<"\tOK................testAbsFloat"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testAbsFloat"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testAbsFloatException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testAbsFloatUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testEquals();
+		if(isOk())
+			std::cout<<"\tOK................testEquals"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testEquals"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testEqualsException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testEqualsUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testEqualsDouble();
+		if(isOk())
+			std::cout<<"\tOK................testEqualsDouble"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testEqualsDouble"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testEqualsDoubleException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testEqualsDoubleUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testEqualsFloat();
+		if(isOk())
+			std::cout<<"\tOK................testEqualsFloat"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testEqualsFloat"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testEqualsFloatException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testEqualsFloatUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testNonNegative();
+		if(isOk())
+			std::cout<<"\tOK................testNonNegative"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testNonNegative"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testNonNegativeException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testNonNegativeUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testIsPositive();
+		if(isOk())
+			std::cout<<"\tOK................testIsPositive"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testIsPositive"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testIsPositiveException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testIsPositiveUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testFloor();
+		if(isOk())
+			std::cout<<"\tOK................testFloor"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testFloor"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testFloorException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testFloorUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testCeil();
+		if(isOk())
+			std::cout<<"\tOK................testCeil"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testCeil"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testCeilException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testCeilUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testPow();
+		if(isOk())
+			std::cout<<"\tOK................testPow"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testPow"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testPowException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testPowUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testRoot();
+		if(isOk())
+			std::cout<<"\tOK................testRoot"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testRoot"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testRoot: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testRoot: Unknown exception"<<std::endl;  }
+
+}

@@ -1,0 +1,2 @@
+#define AlgebraTest_VERSION_MAJOR @AlgebraTest_VERSION_MAJOR@
+#define AlgebraTest_VERSION_MINOR @AlgebraTest_VERSION_MINOR@

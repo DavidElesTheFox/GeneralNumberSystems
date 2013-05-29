@@ -1,0 +1,55 @@
+cmake_minimum_required (VERSION 2.6)
+project (GraphicsTest)
+
+set (GraphicsTest_VERSION_MAJOR 1)
+set (GraphicsTest_VERSION_MINOR 0)
+
+if (WIN32)
+	set (install_dir "/windows/programing/c++/install")
+	SET (GLEW_LIB_DIR "")
+	SET (GL_LIB_DIR "")
+	SET (glut_LIB_DIR "")
+	SET (X11_LIB_DIR "")
+	SET (GLU_LIB_DIR "")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+else (UNIX)
+	set (install_dir "/home/elesd/Dokumentumok/programing2/base")
+	set (GLEW_LIB_DIR "/usr/lib")
+	SET (GL_LIB_DIR "/usr/lib")
+	SET (glut_LIB_DIR "/usr/lib")
+	SET (X11_LIB_DIR "/usr/lib")
+	SET (GLU_LIB_DIR "/usr/lib")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+endif (WIN32)
+
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/)
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/)
+
+include_directories ("${PROJECT_SOURCE_DIR}/header")
+include_directories ("${install_dir}/include")
+
+add_library(MATH STATIC IMPORTED)
+add_library(Graphics STATIC IMPORTED)
+set_property (TARGET MATH PROPERTY IMPORTED_LOCATION ${install_dir}/lib/libMATH.a)
+set_property (TARGET Graphics PROPERTY IMPORTED_LOCATION ${install_dir}/lib/libGraphics.a)
+
+add_library (GLEW_LIB SHARED IMPORTED)
+add_library (GL_LIB SHARED IMPORTED)
+add_library (glut_LIB SHARED IMPORTED)
+add_library (X11_LIB SHARED IMPORTED)
+add_library (GLU_LIB SHARED IMPORTED)
+set_property (TARGET GLEW_LIB PROPERTY IMPORTED_LOCATION "/usr/lib/libGLEW.so")
+set_property (TARGET GL_LIB PROPERTY IMPORTED_LOCATION ${GL_LIB_DIR}/libGL.so)
+set_property (TARGET glut_LIB PROPERTY IMPORTED_LOCATION ${glut_LIB_DIR}/libglut.so)
+set_property (TARGET X11_LIB PROPERTY IMPORTED_LOCATION ${X11_LIB_DIR}/libX11.so.6)
+set_property (TARGET GLU_LIB PROPERTY IMPORTED_LOCATION ${GLU_LIB_DIR}/libGLU.so)
+
+
+configure_file (
+		"${PROJECT_SOURCE_DIR}/config.h.in"
+		"${PROJECT_SOURCE_DIR}/header/graphicstestconfig.h")
+
+file (GLOB sources "${PROJECT_SOURCE_DIR}/source/*.cpp")
+file (GLOB headers "${PROJECT_SOURCE_DIR}/header/*.h")
+add_executable (GraphicsTest ${sources})
+target_link_libraries (GraphicsTest MATH Graphics GLEW_LIB GL_LIB glut_LIB GLU_LIB)

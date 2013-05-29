@@ -1,0 +1,34 @@
+void ConverterTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testVectorConvert();
+		if(isOk())
+			std::cout<<"\tOK................testVectorConvert"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testVectorConvert"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testVectorConvertException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testVectorConvertUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testMatrixConvert();
+		if(isOk())
+			std::cout<<"\tOK................testMatrixConvert"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testMatrixConvert"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testMatrixConvert: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testMatrixConvert: Unknown exception"<<std::endl;  }
+
+}

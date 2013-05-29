@@ -1,0 +1,251 @@
+void IntegerTest::run()
+{
+	bool tmp = true;
+	testConstructor();
+	if(isOk())
+		std::cout<<"\tOK................testConstructor"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testConstructor"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testCopyConstrucror();
+	if(isOk())
+		std::cout<<"\tOK................testCopyConstrucror"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testCopyConstrucror"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testBeEq();
+	if(isOk())
+		std::cout<<"\tOK................testBeEq"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testBeEq"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpMinus();
+	if(isOk())
+		std::cout<<"\tOK................testOpMinus"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpMinus"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpPlusEq();
+	if(isOk())
+		std::cout<<"\tOK................testOpPlusEq"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpPlusEq"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpMinusEq();
+	if(isOk())
+		std::cout<<"\tOK................testOpMinusEq"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpMinusEq"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpMultEq();
+	if(isOk())
+		std::cout<<"\tOK................testOpMultEq"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpMultEq"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpDivEq();
+	if(isOk())
+		std::cout<<"\tOK................testOpDivEq"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpDivEq"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpEq1();
+	if(isOk())
+		std::cout<<"\tOK................testOpEq1"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpEq1"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpEq2();
+	if(isOk())
+		std::cout<<"\tOK................testOpEq2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpEq2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpNe1();
+	if(isOk())
+		std::cout<<"\tOK................testOpNe1"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpNe1"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpNe2();
+	if(isOk())
+		std::cout<<"\tOK................testOpNe2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpNe2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOplt1();
+	if(isOk())
+		std::cout<<"\tOK................testOplt1"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOplt1"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOplt2();
+	if(isOk())
+		std::cout<<"\tOK................testOplt2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOplt2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpgt1();
+	if(isOk())
+		std::cout<<"\tOK................testOpgt1"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpgt1"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpgt2();
+	if(isOk())
+		std::cout<<"\tOK................testOpgt2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpgt2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOple1();
+	if(isOk())
+		std::cout<<"\tOK................testOple1"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOple1"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOple2();
+	if(isOk())
+		std::cout<<"\tOK................testOple2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOple2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpge1();
+	if(isOk())
+		std::cout<<"\tOK................testOpge1"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpge1"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpge2();
+	if(isOk())
+		std::cout<<"\tOK................testOpge2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpge2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpAdd1();
+	if(isOk())
+		std::cout<<"\tOK................testOpAdd1"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpAdd1"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpAdd2();
+	if(isOk())
+		std::cout<<"\tOK................testOpAdd2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpAdd2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpMinus1();
+	if(isOk())
+		std::cout<<"\tOK................testOpMinus1"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpMinus1"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpMinus2();
+	if(isOk())
+		std::cout<<"\tOK................testOpMinus2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpMinus2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpMult1();
+	if(isOk())
+		std::cout<<"\tOK................testOpMult1"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpMult1"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpMult2();
+	if(isOk())
+		std::cout<<"\tOK................testOpMult2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpMult2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpDiv1();
+	if(isOk())
+		std::cout<<"\tOK................testOpDiv1"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpDiv1"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpDiv2();
+	if(isOk())
+		std::cout<<"\tOK................testOpDiv2"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpDiv2"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testPressure();
+	if(isOk())
+		std::cout<<"\tOK................testPressure"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testPressure"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpPp();
+	if(isOk())
+		std::cout<<"\tOK................testOpPp"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpPp"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+
+	testOpMm();
+	if(isOk())
+		std::cout<<"\tOK................testOpMm"<<std::endl;
+	else
+		std::cout<<"\tNOK...............testOpMm"<<std::endl;
+	tmp = tmp && isOk();
+	ok = true;
+}

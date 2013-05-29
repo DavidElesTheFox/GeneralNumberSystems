@@ -1,0 +1,34 @@
+#ifndef __MATH__LINEARALGEBRA__ADJOINTMATRIX_TRAITS_H
+#define __MATH__LINEARALGEBRA__ADJOINTMATRIX_TRAITS_H
+
+#include <MATH/matrix.h>
+#include "smithnormalform.h"
+
+namespace MATH
+{
+	namespace LinearAlgebra
+	{
+		template<class T>
+		class AdjointMatrix_traits
+		{
+			public:
+				static T getDeterminant(MATH::Matrix<T>& mtx);
+		};
+
+		template<class T>
+		T AdjointMatrix_traits<T>::getDeterminant(MATH::Matrix<T>& mtx)
+		{
+			return mtx.getDeterminant();
+		}
+
+		//function declaration
+		template<>
+		int AdjointMatrix_traits<int>::getDeterminant(MATH::Matrix<int>& mtx);
+
+		//explicit template declaration
+		extern template class AdjointMatrix_traits<int>;
+	}
+}
+
+
+#endif // __MATH__LINEARALGEBRA__ADJOINTMATRIX_TRAITS_H

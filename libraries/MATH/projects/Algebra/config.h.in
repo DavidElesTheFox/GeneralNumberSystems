@@ -1,0 +1,18 @@
+#define Algebra_VERSION_MAJOR @Algebra_VERSION_MAJOR@
+#define Algebra_VERSION_MINOR @Algebra_VERSION_MINOR@
+
+/**
+	* @file algebraconfig.h
+	* @brief configuration file for cmake
+	*/
+
+/**
+	* @mainpage Algebra
+	* 
+	*           This namespace contains general classes for Algebrical
+	*           problems, and general traits, which is usedfull
+	*           for general porpuse classis in other problems
+	* 
+	* @version @Algebra_VERSION_MAJOR@.@Algebra_VERSION_MINOR@
+	* @author David Eles, eles.david88@gmail.com
+	*/

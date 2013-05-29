@@ -1,0 +1,139 @@
+void SmithNormalFormTest::run()
+{
+	bool tmp = true;
+	try
+	{
+		testTransformation();
+		if(isOk())
+			std::cout<<"\tOK................testTransformation"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testTransformation"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testTransformationException occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testTransformationUnknown exception"<<std::endl;  }
+
+	try
+	{
+		testTransformation2();
+		if(isOk())
+			std::cout<<"\tOK................testTransformation2"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testTransformation2"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testTransformation2Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testTransformation2Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testTransformation3();
+		if(isOk())
+			std::cout<<"\tOK................testTransformation3"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testTransformation3"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testTransformation3Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testTransformation3Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testTransformation4();
+		if(isOk())
+			std::cout<<"\tOK................testTransformation4"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testTransformation4"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testTransformation4Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testTransformation4Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testTransformation5();
+		if(isOk())
+			std::cout<<"\tOK................testTransformation5"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testTransformation5"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testTransformation5Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testTransformation5Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testTransformation6();
+		if(isOk())
+			std::cout<<"\tOK................testTransformation6"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testTransformation6"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testTransformation6Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testTransformation6Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testTransformation7();
+		if(isOk())
+			std::cout<<"\tOK................testTransformation7"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testTransformation7"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testTransformation7Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testTransformation7Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testTransformation8();
+		if(isOk())
+			std::cout<<"\tOK................testTransformation8"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testTransformation8"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testTransformation8Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testTransformation8Unknown exception"<<std::endl;  }
+
+	try
+	{
+		testTransformation9();
+		if(isOk())
+			std::cout<<"\tOK................testTransformation9"<<std::endl;
+		else
+			std::cout<<"\tNOK...............testTransformation9"<<std::endl;
+		tmp = tmp && isOk();
+		ok = true;
+	}
+	catch(Exceptions::Exception& ex)
+	{ std::cout<<"testTransformation9: Exception occured: " << ex <<std::endl; }
+	catch(...)
+	{ std::cout<<"testTransformation9: Unknown exception"<<std::endl;  }
+
+}
