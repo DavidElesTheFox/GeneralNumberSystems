@@ -29,14 +29,14 @@ namespace MATH
 		template<class TO_TYPE>
 		TO_TYPE Number_traits_core<T>::convert(const T& number)
 		{
-			return number;
+			return TO_TYPE(number);
 		}
 
 		template<class T>
 		template<class FROM_TYPE>
 		T Number_traits_core<T>::parse(const FROM_TYPE& number)
 		{
-			return number;
+			return T(number);
 		}
 
 		template<class T>
