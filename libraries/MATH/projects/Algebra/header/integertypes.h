@@ -25,7 +25,8 @@ namespace MATH
 															     short,
 															     unsigned short,
 															     long,
-															     unsigned long>::Result IntegerTypes;
+															     unsigned long,
+                                   long long>::Result IntegerTypes;
 
 		/**
 			* @brief Simple function to determine a type, that is integer
