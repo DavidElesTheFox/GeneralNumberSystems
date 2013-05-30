@@ -44,7 +44,7 @@ namespace MATH
 			
 			int c = 1;
 			double norm = FMCalculator::norm(0, X);
-			while (norm >= .001)
+			while (norm >= 0.01)
 			{
 				X = MI*X;
 				norm = FMCalculator::norm(0, X);
@@ -56,15 +56,18 @@ namespace MATH
 			for(int i = 0; i < dimension; ++i)
 			{
 				vector_traits_float::setElement(i,
-																				NumCalc_float::floor(
-																					vector_traits_float::
-																					  getElement(i,v2)),
-																				v3);
-				vector_traits_float::setElement(i,
 																				NumCalc_float::ceil(
-																					vector_traits_float::
-																					  getElement(i,v4)),
+																					-1 * vector_traits_float::
+																					  getElement(i,v2))
+                                          + number_traits_float::multiplicativeUnit,
 																				v1);
+				vector_traits_float::setElement(i,
+																				NumCalc_float::floor(
+																					-1 * vector_traits_float::
+																					  getElement(i,v4))
+                                        - number_traits_float::multiplicativeUnit,
+																				v3);
+        //+- 1 is needed due to double precision
 			}
 		}
 
@@ -104,6 +107,7 @@ namespace MATH
 						if (max < element)
 							max = element;
 					}
+
 					vector_traits_float::
 						setElement(
 							i,
