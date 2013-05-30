@@ -27,8 +27,8 @@ namespace MATH
 //							std::cout<<"det:"<<tmp.getDeterminant()<<std::endl;
 //					std::cout<<"("<<i<<", "<<j<<")"<<std::endl;
 					adjoint(i, j) = 
-						(i + j) % 2 ? -MCalculator::calculateDeterminant(tmp)
-												: MCalculator::calculateDeterminant(tmp);
+						(i + j) % 2 ? MCalculator::calculateDeterminant(tmp)
+												: -MCalculator::calculateDeterminant(tmp);
 				}
 			}
 			adjoint = MCalculator::calculateTransponate(adjoint);
